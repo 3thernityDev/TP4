@@ -1,17 +1,64 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+</html>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
+</head></html><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>
+{% block title %}Mon Site
+{% endblock %}
+
+</title>
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+	header,
+	footer {
+		background-color: #333;
+		color: #fff;
+		text-align: center;
+		padding: 1em 0;
+	}
+	nav {
+		background-color: #f4f4f4;
+		padding: 1em;
+	}
+	nav a {
+		margin: 0 1em;
+		text-decoration: none;
+		color: #333;
+	}
+	main {
+		padding: 2em;
+	}
+</style>
+</head>
+<body>
+</body>
+<header>
+<h1>
+	{% block header_title %}Bienvenue sur mon site
+	{% endblock %}
+
+</h1>
+</header>
+<nav>
+{% block navigation %}
+	        <a href="{{ path('home') }}">Accueil</a>
+	        <a href="{{ path('about') }}">À propos</a>
+            {% endblock %}
+        </nav>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        <footer>
+            {% block footer %}© 2024 - Mon Site
+            {% endblock %}
+        </footer>
     </body>
 </html>
+
