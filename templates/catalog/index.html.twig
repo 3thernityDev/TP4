@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CatalogController!{% endblock %}
+{% block title %}Détails du {{ action_name | capitalize }}{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>{{ controller_name }} - Action : {{ action_name | capitalize }} ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/Hoarau/OneDrive/Desktop/workspace/Symfony/TP4/src/Controller/CatalogController.php</code></li>
-        <li>Your template at <code>C:/Users/Hoarau/OneDrive/Desktop/workspace/Symfony/TP4/templates/catalog/index.html.twig</code></li>
-    </ul>
+    {% if action_name == 'list' %}
+        <p>Vous consultez la liste des produits.</p>
+    {% elseif action_name == 'show' and product_id is defined %}
+        <p>Vous consultez le détail du produit avec l'ID : <strong>{{ product_id }}</strong>.</p>
+    {% endif %}
 </div>
 {% endblock %}
