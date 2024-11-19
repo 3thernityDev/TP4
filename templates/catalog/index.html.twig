@@ -19,10 +19,12 @@
 <div class="example-wrapper">
     <h1>{{ controller_name }} - Action : {{ action_name | capitalize }} ✅</h1>
 
-    {% if action_name == 'list' %}
-        <p>Vous consultez la liste des produits.</p>
-    {% elseif action_name == 'show' and product_id is defined %}
-        <p>Vous consultez le détail du produit avec l'ID : <strong>{{ product_id }}</strong>.</p>
+{% if action_name == 'show' %}
+	<p>Vous consultez le contenu du panier.</p>
+{% else %}
+	<p>Action inconnue.</p>
+
+
     {% endif %}
 </div>
 {% endblock %}
